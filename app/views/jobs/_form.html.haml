@@ -1,0 +1,13 @@
+= javascript_include_tag "bootstrap-datepicker.js"
+.clear
+  = form_for @job do |f|
+    %div
+      = f.label "Название вакансии"
+      = f.text_field :title, :style => "height: 30px;"
+    %div
+      = f.label "Описание вакансии"
+      = f.cktext_area :description, :ckeditor => { :toolbar => "mini"}
+    %br
+    %div
+      = f.submit "Применить", :class => "btn btn-primary"
+      = link_to "Отмена", :back, :class => "btn btn-danger"

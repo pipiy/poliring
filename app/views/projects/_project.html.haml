@@ -1,0 +1,12 @@
+%article.span3{"data-id" => project.id}
+  %span
+    %a{ href: project.image_url, rel: "prettyPhoto" }
+      = image_tag(project.image_url(:thumb), alt: project.name, style: "width: 208px; height: 108px;")
+      .pd
+        %a.p-view{rel: "prettyPhoto", href: project.image_url, title: project.name}
+        %a.p-link{href: project_path(project)}
+  %h3
+    %a{href: project_path(project)}
+      = project.name
+  %p
+    = truncate strip_tags(project.description).to_s.html_safe, length: 100

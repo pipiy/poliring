@@ -1,0 +1,8 @@
+production:
+  email:
+    username: <%= ENV['SENDGRID_USERNAME'] %>
+    password: <%= ENV['SENDGRID_PASSWORD'] %>
+    host:     "smtp.sendgrid.net"
+    port:     25
+    domain:   "http://poliring.herokuapp.com/"
+    from:     "petya.petinych@gmail.com"

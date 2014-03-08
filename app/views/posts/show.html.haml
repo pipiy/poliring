@@ -1,0 +1,25 @@
+.row-fluid
+  %section#page-sidebar.alignrleft.span8
+    .page-title.clearfix
+      %h1
+        = @post.title
+      %ul.meta.clearfix
+        %li
+          = @post.created_at.strftime("%d/%m/%Y")
+        %li
+          Опубликовал:
+          %a{href: "mailto:admin@example.com"}
+            = AdminUser.first.email
+    %article.blog-post
+      - if @post.image_url.present?
+        %a.img-w-border
+          = image_tag(@post.image_url, style: "width: 610px; height: 224px")
+      - if @post.video_url.present?
+        %video.video-js.vjs-default-skin{:controls => "", "data-setup" => "{}", :height =>"264", :preload => "auto", :width => "619"}
+          %source{src: @post.video_url, type: "video/mp4"}
+    %hr/
+    %p
+      = strip_tags(@post.content).to_s.html_safe
+  / sidebar
+  %aside#sidebar.alignright.span4
+    = render 'sidebar'

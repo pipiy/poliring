@@ -1,0 +1,39 @@
+.row-fluid
+  %section#page-sidebar.alignleft.span8
+    .page-title.clearfix
+      - if @posts.present?
+        %h1 Последние новости
+        %span Lorem ipsum dolor sit amet consectetuer elit sed diam
+      - else 
+        %h1 На данный момент новости отсутствуют
+    - @posts.each do |post|
+      %article.blog-post
+        - if post.image_url.present?
+          = link_to post, class: "img-w-border" do
+            = image_tag(post.image_url, style: "width: 610px; height: 224px")
+            %i
+        - if post.video_url.present?
+          .video
+            %video.video-js.vjs-default-skin{:controls => "", "data-setup" => "{}", :height => "264", :preload => "auto", :width => "619"}
+              %source{src: post.video_url, type: "video/mp4"}
+        %h2.post-title
+          = link_to post.title, post
+        %ul.meta.clearfix
+          %li
+            = post.created_at.strftime("%d/%m/%Y")
+          %li
+            Опубликовал:
+            %a{href: "mailto:admin@example.com"}
+              = AdminUser.first.email
+        %p
+          = truncate strip_tags(post.content).to_s.html_safe, length: 300
+        = link_to "Читать далее »", post, class: "read-more"
+      %hr/
+
+    .pagination.pagination-centered
+      = render 'pagination'
+
+  / sidebar
+  / - if @posts.present?
+  /   %aside#sidebar.alignright.span4
+  /     = render 'sidebar'

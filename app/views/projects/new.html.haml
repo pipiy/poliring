@@ -1,0 +1,14 @@
+.page-title.clearfix
+  %h1 Добавление Фото
+.clear
+  = form_for @project do |f|
+    = f.file_field :image, multiple: true, name: "project[image]"
+    %br
+    %br
+    = f.label "Название проекта"
+    = f.text_field :name, :style => "height: 30px;"
+    = f.label "Описание"
+    = f.cktext_area :description, :toolbar => 'Basic'
+    %br
+    = f.submit "Добавить", :class => "btn btn-primary start"
+    = link_to "Отменить", :back, :class => "btn btn-danger"  

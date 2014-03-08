@@ -1,0 +1,33 @@
+- if @jobs.present?
+  .page-title.clearfix
+    %h1 Открытые Вакансии
+  .clear
+- else
+  .page-title.clearfix
+    %h1 Открытые Вакансии
+    %span На данный момент вакансий нет
+  .clear
+   
+.span8.vacancy-list
+  .row
+    - @jobs.each do |job|
+      %article.blog-post
+        %h2
+          = link_to job.title, job
+        %p
+          %ul.meta.clearfix
+            %li 
+              = job.datepicker
+            %li
+              Опубликовал: 
+              %a{:href => "mailto:admin@example.com"}
+                = AdminUser.first.email
+        %blockquote
+          %p
+            = truncate strip_tags(job.description).to_s.html_safe, length: 300
+          %br
+            = link_to 'Читать далее »', job, :class => "read-more"
+        = job.created_at.strftime("%d/%m/%Y")
+        %hr
+.pagination.pagination-centered
+  = render 'pagination'

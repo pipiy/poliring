@@ -1,0 +1,12 @@
+.row-fluid
+  .span6
+    .logo
+      = link_to image_tag("logo.png"), root_path
+  .span6.search.hidden-phone
+    - if admin_user_signed_in?
+      #contact-details
+        %ul
+          %li
+            %a{href: admin_root_path}
+              %i.icon-envelope
+              = AdminUser.first.email

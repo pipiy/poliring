@@ -1,0 +1,19 @@
+- @posts.each do |post|
+  %article.span3
+    - if post.image_url.present?
+      = image_tag(post.image_url, style: "width: 217px; height: 122px; opacity: 1;")
+    - else
+      %video.video-js.vjs-default-skin{:height =>"122", :width => "216"}
+        %source{src: post.video_url, type: "video/mp4"}
+    %p.l-meta
+      %span
+        От
+        %a{href: "mailto:admin@example.com"}
+          = AdminUser.first.email
+          %br
+        | #{post.created_at.strftime("%d/%m/%Y")} | в подразделе
+        %a{href: posts_path} Новости
+    %h6.title
+      = link_to post.title, post
+    %p
+      = truncate strip_tags(post.content).to_s.html_safe, length: 100

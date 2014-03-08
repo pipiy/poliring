@@ -1,0 +1,15 @@
+%article.blog-post
+  .img-w-border
+    = image_tag @project.image_url, style: "width: 610px; height: 224px"
+  %ul.meta.clearfix
+    %h2.post-title
+      = @project.name
+    %li 
+      = @project.created_at.strftime("%d/%m/%Y")
+    %li
+      Опубликовал: 
+      %a{:href => "mailto:admin@example.com"}
+        = AdminUser.first.email
+    %br  
+    %hr
+      = strip_tags(@project.description).html_safe

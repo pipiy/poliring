@@ -1,0 +1,44 @@
+- if @projects.present?
+  .page-title.clearfix
+    %h1 Проекты
+    %span Здесь вы можете посмотреть наши законченные проекты, в качестве примера.
+- else
+  .page-title.clearfix
+    %h1 Проекты
+    %span На данный момент проектов нет
+.clear
+
+%section.row-fluid.da-thumbs.portfolio.filtrable.clearfix
+  = render partial: 'project', collection: @projects
+.pagination.pagination-centered
+  = render 'pagination'
+
+:javascript
+  $(document).ready(function() {
+  	$(document).ready(function(){
+      $("a[rel^='prettyPhoto']").prettyPhoto({
+        animation_speed: 'fast',
+        slideshow: 5000,
+        autoplay_slideshow: false,
+        opacity: 0.80,
+        show_title: true, 
+        allow_resize: true,
+        default_width: 500,
+        default_height: 344, 
+        counter_separator_label: '/',
+        theme: 'pp_default',
+        horizontal_padding: 20,
+        hideflash: false,
+        wmode: 'opaque',
+        autoplay: true,
+        modal: false,
+        deeplinking: true,
+        overlay_gallery: true,
+        keyboard_shortcuts: true,
+        changepicturecallback: function(){},
+        allback: function(){},
+        ie6_fallback: true
+      });
+    });
+    $('.hero-unit').fadeIn(3000);
+  });  

@@ -1,0 +1,22 @@
+%br
+  = render partial: "slider"
+
+%section#welcome
+  .hero-unit
+    %h1
+      Добро пожаловать на
+      %span Poliring.by
+      \- ваш новый вебсайт!
+    %p Fringilla penatibus orci est non mollit, suspendisse pulvinar egestas a donec, iaculis aenean, parturient velit elit ac viverra vestibulum, quis et nascetur rutrum nibh molestie fusce. Sapien pede libero.
+    = link_to "Читать далее", about_us_path, class: "read-more"
+
+- if @posts.present?
+  %hr
+  .row-fluid.our-blog
+    = render "home_blog"
+%hr
+.row-fluid.services
+  = render 'fluid_services'
+.row-fluid.services
+  = render 'fluid_services_2'
+%hr.invisible

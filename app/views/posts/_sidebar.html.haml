@@ -1,0 +1,12 @@
+%section.latest-work
+  .title-divider
+  - if @post.video_url.present?
+    %a.img-w-border{style: "width: 150px; height: 150px"}
+      = video_tag(@post.video_url, style: "height: 150px")
+  - else
+    %a.img-w-border{style: "width: 276px; height: 112px"}
+      = image_tag(@post.image_url, style: "width: 276px; height: 150px") 
+  %h3
+    = @post.title
+  %span.meta
+    = @post.created_at.strftime("%A, %B %e")

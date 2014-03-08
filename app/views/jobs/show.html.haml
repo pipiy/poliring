@@ -1,0 +1,14 @@
+.page-title.clearfix
+  %h1 
+    = @job.title
+  %hr 
+  %blockquote 
+    %ul.meta.clearfix
+      %li 
+        = @job.created_at.strftime("%d/%m/%Y")
+      %li
+        Опубликовал: 
+        %a{:href => "mailto:admin@example.com"}
+          = AdminUser.first.email
+  %h3
+    = @job.description.html_safe

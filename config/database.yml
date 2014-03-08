@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: poliring_development
+  host: localhost
+  pool: 5
+  username: artem
+  password: "123456" 
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: poliring_production
+  host: localhost
+  pool: 5
+  username: artem
+  password: "123456"
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: poliring_test
+  host: localhost
+  pool: 5
+  username: artem
+  password: "123456"

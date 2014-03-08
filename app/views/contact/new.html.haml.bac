@@ -1,0 +1,40 @@
+.row-fluid
+  %section#page-sidebar.alignrleft.span8
+    .page-title.clearfix
+      %h1 Get in Touch
+      %span Lorem ipsum dolor sit amet consectetuer elit sed diam
+    .gmap-block
+      %iframe{:frameborder => "0", :height => "350", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.com/?ie=UTF8&amp;ll=35.960223,-95.712891&amp;spn=43.064638,86.572266&amp;t=m&amp;z=4&amp;output=embed", :width => "825"}
+    %article
+      %p
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat ad minim veniam orem ipsum dolor sit amet, consectetuer adipiscing elit, nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat ad minim veniam
+      %h3 Leave us a Message
+    %hr/
+    = form_for @contact, :url => { :action => :create } do |f|
+      = f.label "Your Name:"
+      = f.text_field :name, :class => "input-xlarge"
+      = f.label "Your Email:"
+      = f.text_field :email, :class => "input-xlarge"
+      = f.label "Your Message:"
+      = f.text_area :description, :class => "text-input"
+      = f.submit "Send Message!", :class => "btn btn-success"
+      = f.button "Reset", :type => "reset", :class => "btn btn-danger"
+  / sidebar
+  %aside#sidebar.alignright.span4
+    %section
+      %p
+        Lorem ipsum dolor sit amet, consect etuer adipi scing elit,
+        %a{:href => "#"} sed diam
+        nonummy nibh euis mod tinci dunt ut laoreet dolore magna
+    %section.blog-category
+      .title-divider
+        %h3.title-sidebar Blog Category
+      %ul.ul-col2.clearfix
+        %li
+          %a{:href => "#"} News
+        %li
+          %a{:href => "#"} Quotes
+        %li
+          %a{:href => "#"} Video
+        %li
+          %a{:href => "#"} Link

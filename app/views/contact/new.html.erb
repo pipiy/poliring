@@ -1,0 +1,64 @@
+<div class="row-fluid">
+    <section id="page-sidebar" class="alignrleft span8">
+        <div class="page-title clearfix">
+          <h1>Будьте на связи</h1>
+          <span>Lorem ipsum dolor sit amet consectetuer elit sed diam</span>
+        </div>
+        <div class="gmap-block">
+            <iframe width="825" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps/ms?msa=0&amp;msid=212856631093274641024.0004dc11ce443e64f7a91&amp;hl=ru&amp;ie=UTF8&amp;t=m&amp;ll=53.909756,27.604987&amp;spn=0.000553,0.00114&amp;z=19&amp;iwloc=0004dc11ce4771107b79a&amp;output=embed">
+            </iframe>
+        </div>
+          <small><a href="https://maps.google.com/maps/ms?msa=0&amp;msid=212856631093274641024.0004dc11ce443e64f7a91&amp;hl=ru&amp;ie=UTF8&amp;t=m&amp;ll=53.909756,27.604987&amp;spn=0.000553,0.00114&amp;z=19&amp;iwloc=0004dc11ce4771107b79a&amp;source=embed" style="color:#0000FF;text-align:left">Просмотреть увеличенную карту</a></small><br/>
+        <article>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat ad minim veniam orem ipsum dolor sit amet, consectetuer adipiscing elit, nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat ad minim veniam
+            </p>
+            <h3>Оставьте нам сообщение</h3>
+        </article>
+        <hr/>
+        <%= form_for @contact, :url => { :action => :create } do |f| %>
+          <div class="af-outer af-required">
+            <div class="af-inner">
+              <%= f.label "Ваше имя:", id: "name_label" %>
+              <%= f.text_field :name, class: "text-input input-xlarge", size: "30px;", required: true, pattern: ".{3,}"  %>
+            </div>
+          </div>
+          <div class="af-outer af-required">
+            <div class="af-inner">
+              <%= f.label "Ваш Email:" %>
+              <%= f.email_field :email, class: "text-input input-xlarge", size: "30px;", required: true %>
+            </div>
+          </div>
+          <div class="af-outer af-required">
+            <div class="af-inner">
+              <%= f.label "Ваше сообщение:", id: "message_label" %>
+              <%= f.text_area :description, class: "text-input", id: "input-message", style: "width: 618px; height: 160px;", required: true %>
+            </div>
+          </div>
+          <div class="af-outer af-required">
+            <div class="af-inner">
+              <%= f.submit "Отправить сообщение!", class: "btn" %>
+              <%= f.button "Сбросить", type: "reset", class: "btn btn-danger" %>
+            </div>
+          </div>
+        <% end %>
+    </section>
+    <!--sidebar-->
+<aside id="sidebar" class="alignright span4">
+  <section><p>Lorem ipsum dolor sit amet, consect etuer adipi scing elit, <a href="#">sed diam</a> nonummy nibh euis mod tinci dunt ut laoreet dolore magna </p></section>
+    <section class="recent-comments">
+      <div class="title-divider">
+          <h3 class="title-sidebar">Контактная информация</h3>
+      </div>
+      <ul class="clearfix">
+          <li> Poliring</li>
+          <li> ул. Петруся Бровки 30-30</li>
+          <li> Минск, 220013, Беларусь</li>
+          <li> Телефон: (17) 299-57-85</li>
+          <li> Факс: (17) 296-68-29</li>
+          <li> E-mail: victor@poliring.com</li>
+          <li> Web: http://www.poliring.by</li>
+      </ul>
+  </section>
+</aside>
+</div>

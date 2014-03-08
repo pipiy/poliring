@@ -1,0 +1,12 @@
+- if flash[:notice]
+  .message-top
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    .container
+      %strong
+        = flash[:notice]
+- if flash[:error]
+  .error.message-top
+    %button.close{"data-dismiss" => "alert", :type => "button"} ×
+    .container
+      %strong Предупреждение!
+      = flash[:error]
